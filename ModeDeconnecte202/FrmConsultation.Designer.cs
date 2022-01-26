@@ -33,6 +33,9 @@
             this.lstConsultations = new System.Windows.Forms.ListBox();
             this.dtpDateConsultation = new System.Windows.Forms.DateTimePicker();
             this.txtObservation = new System.Windows.Forms.TextBox();
+            this.btnValider = new System.Windows.Forms.Button();
+            this.btnAjouter = new System.Windows.Forms.Button();
+            this.txtDC = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSuivant
@@ -102,20 +105,53 @@
             this.dtpDateConsultation.Name = "dtpDateConsultation";
             this.dtpDateConsultation.Size = new System.Drawing.Size(396, 28);
             this.dtpDateConsultation.TabIndex = 24;
+            this.dtpDateConsultation.ValueChanged += new System.EventHandler(this.dtpDateConsultation_ValueChanged);
             // 
             // txtObservation
             // 
-            this.txtObservation.Location = new System.Drawing.Point(786, 181);
+            this.txtObservation.Location = new System.Drawing.Point(780, 174);
             this.txtObservation.Multiline = true;
             this.txtObservation.Name = "txtObservation";
             this.txtObservation.Size = new System.Drawing.Size(402, 223);
             this.txtObservation.TabIndex = 25;
+            // 
+            // btnValider
+            // 
+            this.btnValider.Location = new System.Drawing.Point(855, 487);
+            this.btnValider.Margin = new System.Windows.Forms.Padding(4);
+            this.btnValider.Name = "btnValider";
+            this.btnValider.Size = new System.Drawing.Size(103, 48);
+            this.btnValider.TabIndex = 31;
+            this.btnValider.Text = "Valider";
+            this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
+            // 
+            // btnAjouter
+            // 
+            this.btnAjouter.Location = new System.Drawing.Point(786, 424);
+            this.btnAjouter.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(103, 48);
+            this.btnAjouter.TabIndex = 30;
+            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
+            // txtDC
+            // 
+            this.txtDC.Location = new System.Drawing.Point(834, 243);
+            this.txtDC.Name = "txtDC";
+            this.txtDC.Size = new System.Drawing.Size(215, 28);
+            this.txtDC.TabIndex = 32;
+            this.txtDC.TextChanged += new System.EventHandler(this.txtDC_TextChanged);
             // 
             // FrmConsultation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 568);
+            this.Controls.Add(this.btnValider);
+            this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.txtObservation);
             this.Controls.Add(this.dtpDateConsultation);
             this.Controls.Add(this.lstConsultations);
@@ -124,6 +160,7 @@
             this.Controls.Add(this.btnChercher);
             this.Controls.Add(this.txtChercher);
             this.Controls.Add(this.lstPatients);
+            this.Controls.Add(this.txtDC);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmConsultation";
@@ -142,5 +179,8 @@
         private System.Windows.Forms.ListBox lstConsultations;
         private System.Windows.Forms.DateTimePicker dtpDateConsultation;
         private System.Windows.Forms.TextBox txtObservation;
+        private System.Windows.Forms.Button btnValider;
+        private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.TextBox txtDC;
     }
 }

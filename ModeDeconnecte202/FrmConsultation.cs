@@ -15,7 +15,7 @@ namespace ModeDeconnecte202
     /*
      ^(?([^\r\n])\s)*\r?$\r?\n
     */
-    
+
     public partial class FrmConsultation : Form
     {
         SqlConnection cn = new SqlConnection();
@@ -52,14 +52,14 @@ namespace ModeDeconnecte202
             //Gestion des Consultations
             comC = new SqlCommand("select * from consultation order by dateConsultation desc", cn);
             daC = new SqlDataAdapter(comC);
-            //           cb = new SqlCommandBuilder(da);
+            cb = new SqlCommandBuilder(daC);
             daC.Fill(ds, "consultation");
 
 
             DataColumn idPatient = ds.Tables["patient"].Columns["id"];
             DataColumn idPatientConsultation = ds.Tables["consultation"].Columns["idPatient"];
             DataRelation rel_consultation_patient = new DataRelation("fk_consultation_patient", idPatient, idPatientConsultation);
-           ds.Relations.Add(rel_consultation_patient);
+            ds.Relations.Add(rel_consultation_patient);
 
 
 
@@ -70,7 +70,7 @@ namespace ModeDeconnecte202
             lstConsultations.ValueMember = "id";
             lstConsultations.DataSource = bsC;
 
-            dtpDateConsultation.DataBindings.Add("Text", bsC, "dateConsultation");
+            txtDC.DataBindings.Add("Text", bsC, "dateConsultation");
             txtObservation.DataBindings.Add("Text", bsC, "observation");
 
 
@@ -90,6 +90,33 @@ namespace ModeDeconnecte202
         private void btnPrecedent_Click(object sender, EventArgs e)
         {
             bsP.MovePrevious();
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            bsC.AddNew();
+            txtDC.Text = DateTime.Now.ToString();
+
+        }
+
+        private void btnValider_Click(object sender, EventArgs e)
+        {
+            bsC.EndEdit();
+            daC.Update(ds.Tables["consultation"]);
+        }
+
+        private void txtDC_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dtpDateConsultation.Value = Convert.ToDateTime(txtDC.Text);
+            }
+            catch (Exception ex) { }
+        }
+
+        private void dtpDateConsultation_ValueChanged(object sender, EventArgs e)
+        {
+            txtDC.Text = dtpDateConsultation.Value.ToString();
         }
     }
 }
