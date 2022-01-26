@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-
 namespace ModeDeconnecte202
 {
     static class Program
@@ -15,7 +14,7 @@ namespace ModeDeconnecte202
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMedecin());
+            Application.Run(new FrmMenu());
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace ModeDeconnecte202
+﻿namespace ModeDeconnecte202
 {
     partial class FrmMedecin
     {
@@ -7,7 +6,6 @@ namespace ModeDeconnecte202
         /// Variable nécessaire au concepteur.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Nettoyage des ressources utilisées.
         /// </summary>
@@ -20,9 +18,7 @@ namespace ModeDeconnecte202
             }
             base.Dispose(disposing);
         }
-
         #region Code généré par le Concepteur Windows Form
-
         /// <summary>
         /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
         /// le contenu de cette méthode avec l'éditeur de code.
@@ -161,11 +157,8 @@ namespace ModeDeconnecte202
             this.Load += new System.EventHandler(this.FrmMedecin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
         #endregion
-
         private System.Windows.Forms.ListBox lstMedecins;
         private System.Windows.Forms.TextBox txtnom;
         private System.Windows.Forms.TextBox txtprenom;
@@ -179,4 +172,3 @@ namespace ModeDeconnecte202
         private System.Windows.Forms.Label lblId;
     }
 }
-
