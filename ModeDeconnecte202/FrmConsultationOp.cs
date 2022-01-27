@@ -15,23 +15,21 @@ namespace ModeDeconnecte202
         {
             InitializeComponent();
         }
+
         private BindingSource bsPatient;
+        private BindingSource bsConsultation;
+
         private void FrmConsultationOp_Load(object sender, EventArgs e)
         {
+
+            bsPatient = db.remplirListe("select * from patient", "patient");
+            bsConsultation = db.remplirListeRelation("select * from consultation", "consultation", bsPatient, "id", "idpatient");
+
             listBox1.DisplayMember = "nom";
             listBox1.ValueMember = "id";
-            bsPatient = db.remplirListe("select * from patient", "patient");
-
             listBox1.DataSource = bsPatient;
-            listBox2.DisplayMember = "nom";
-            listBox2.ValueMember = "id";
-            listBox2.DataSource = db.remplirListe("select * from medecin", "medecin");
 
-            comboBox1.DisplayMember = "nom";
-            comboBox1.ValueMember = "id";
-            comboBox1.DataSource = db.remplirListe("select * from medicament", "medicament");
-
-            dataGridView1.DataSource = bsPatient;
+            dataGridView1.DataSource = bsConsultation;
 
             textBox1.DataBindings.Add("text", bsPatient, "nom");
             textBox2.DataBindings.Add("text", bsPatient, "prenom");

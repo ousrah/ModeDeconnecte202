@@ -37,10 +37,18 @@ namespace ModeDeconnecte202
             com.CommandText = req;
             com.Connection = cn;
             da.SelectCommand = com;
-            
+
+            /*   foreach(DataTable t in ds.Tables)
+                      {
+                          t.Constraints.Clear();
+                      }
+            */
+          
+            ds.EnforceConstraints = false;
             if (ds.Tables.Contains(table))
                 ds.Tables[table].Clear();
             da.Fill(ds, table);
+            ds.EnforceConstraints = true;
 
             BindingSource bs = new BindingSource();
             bs.DataSource = ds;
@@ -49,7 +57,33 @@ namespace ModeDeconnecte202
 
         }
 
-     public static void miseAJour(string table)
+        public static BindingSource remplirListeRelation(string req, string table, BindingSource bsPk, string pk, string fk)
+        {
+            OuvrirConnection();
+            com.CommandText = req;
+            com.Connection = cn;
+            da.SelectCommand = com;
+            ds.EnforceConstraints = false;
+            if (ds.Tables.Contains(table))
+                          ds.Tables[table].Clear();
+            da.Fill(ds, table);
+            ds.EnforceConstraints = true;
+            string relation = "rel_" + table + "_" + bsPk.DataMember;
+            DataColumn colPK = ds.Tables[bsPk.DataMember].Columns[pk];
+            DataColumn colFK = ds.Tables[table].Columns[fk];
+            DataRelation rel = new DataRelation(relation, colPK, colFK);
+
+            if (!ds.Relations.Contains(relation))
+                ds.Relations.Add(rel);
+
+            BindingSource bs = new BindingSource();
+            bs.DataSource = bsPk;
+            bs.DataMember = relation;
+            return bs;
+
+        }
+
+        public static void miseAJour(string table)
         {
             OuvrirConnection();
             com.CommandText = "select * from " + table;
