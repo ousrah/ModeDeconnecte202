@@ -17,7 +17,7 @@ namespace ModeDeconnecte202
         static SqlCommand com = new SqlCommand();
         static SqlDataAdapter da = new SqlDataAdapter();
 
-
+        static SqlCommandBuilder cb = new SqlCommandBuilder();
         public static void OuvrirConnection()
         {
             if (cn.State != ConnectionState.Open)
@@ -40,7 +40,6 @@ namespace ModeDeconnecte202
             
             if (ds.Tables.Contains(table))
                 ds.Tables[table].Clear();
-
             da.Fill(ds, table);
 
             BindingSource bs = new BindingSource();
@@ -50,6 +49,16 @@ namespace ModeDeconnecte202
 
         }
 
+     public static void miseAJour(string table)
+        {
+            OuvrirConnection();
+            com.CommandText = "select * from " + table;
+            com.Connection = cn;
+            da.SelectCommand = com;
+            cb.DataAdapter = da;
+            da.Update(ds.Tables[table]);
+
+        }
 
 
     }

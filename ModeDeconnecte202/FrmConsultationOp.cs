@@ -35,6 +35,20 @@ namespace ModeDeconnecte202
 
             textBox1.DataBindings.Add("text", bsPatient, "nom");
             textBox2.DataBindings.Add("text", bsPatient, "prenom");
+            textBox3.DataBindings.Add("text", bsPatient, "telephone");
+            textBox4.DataBindings.Add("text", bsPatient, "email");
+
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            bsPatient.AddNew();
+        }
+
+        private void btnValider_Click(object sender, EventArgs e)
+        {
+            bsPatient.EndEdit();
+            db.miseAJour("patient");
 
         }
     }

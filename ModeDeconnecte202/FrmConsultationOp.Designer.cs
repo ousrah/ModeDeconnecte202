@@ -35,6 +35,10 @@ namespace ModeDeconnecte202
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.btnAjouter = new System.Windows.Forms.Button();
+            this.btnValider = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,23 +82,61 @@ namespace ModeDeconnecte202
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(785, 349);
+            this.textBox1.Location = new System.Drawing.Point(803, 331);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(360, 30);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(785, 401);
+            this.textBox2.Location = new System.Drawing.Point(803, 383);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(360, 30);
             this.textBox2.TabIndex = 5;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(803, 431);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(360, 30);
+            this.textBox3.TabIndex = 7;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(803, 478);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(360, 30);
+            this.textBox4.TabIndex = 6;
+            // 
+            // btnAjouter
+            // 
+            this.btnAjouter.Location = new System.Drawing.Point(678, 523);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(98, 37);
+            this.btnAjouter.TabIndex = 8;
+            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
+            // btnValider
+            // 
+            this.btnValider.Location = new System.Drawing.Point(803, 557);
+            this.btnValider.Name = "btnValider";
+            this.btnValider.Size = new System.Drawing.Size(112, 41);
+            this.btnValider.TabIndex = 9;
+            this.btnValider.Text = "Valider";
+            this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
             // FrmConsultationOp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1462, 520);
+            this.ClientSize = new System.Drawing.Size(1462, 632);
+            this.Controls.Add(this.btnValider);
+            this.Controls.Add(this.btnAjouter);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
@@ -120,5 +162,9 @@ namespace ModeDeconnecte202
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.Button btnValider;
     }
 }
