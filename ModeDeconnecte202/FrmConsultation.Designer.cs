@@ -40,7 +40,7 @@
             // 
             // btnSuivant
             // 
-            this.btnSuivant.Location = new System.Drawing.Point(291, 505);
+            this.btnSuivant.Location = new System.Drawing.Point(313, 207);
             this.btnSuivant.Margin = new System.Windows.Forms.Padding(6);
             this.btnSuivant.Name = "btnSuivant";
             this.btnSuivant.Size = new System.Drawing.Size(69, 44);
@@ -51,7 +51,7 @@
             // 
             // btnPrecedent
             // 
-            this.btnPrecedent.Location = new System.Drawing.Point(2, 505);
+            this.btnPrecedent.Location = new System.Drawing.Point(24, 207);
             this.btnPrecedent.Margin = new System.Windows.Forms.Padding(6);
             this.btnPrecedent.Name = "btnPrecedent";
             this.btnPrecedent.Size = new System.Drawing.Size(69, 44);
@@ -62,7 +62,7 @@
             // 
             // btnChercher
             // 
-            this.btnChercher.Location = new System.Drawing.Point(248, 15);
+            this.btnChercher.Location = new System.Drawing.Point(270, 15);
             this.btnChercher.Margin = new System.Windows.Forms.Padding(6);
             this.btnChercher.Name = "btnChercher";
             this.btnChercher.Size = new System.Drawing.Size(112, 34);
@@ -73,7 +73,7 @@
             // 
             // txtChercher
             // 
-            this.txtChercher.Location = new System.Drawing.Point(2, 15);
+            this.txtChercher.Location = new System.Drawing.Point(24, 15);
             this.txtChercher.Margin = new System.Windows.Forms.Padding(6);
             this.txtChercher.Name = "txtChercher";
             this.txtChercher.Size = new System.Drawing.Size(234, 28);
@@ -83,41 +83,41 @@
             // 
             this.lstPatients.FormattingEnabled = true;
             this.lstPatients.ItemHeight = 22;
-            this.lstPatients.Location = new System.Drawing.Point(2, 57);
+            this.lstPatients.Location = new System.Drawing.Point(24, 57);
             this.lstPatients.Margin = new System.Windows.Forms.Padding(8);
             this.lstPatients.Name = "lstPatients";
-            this.lstPatients.Size = new System.Drawing.Size(358, 444);
+            this.lstPatients.Size = new System.Drawing.Size(358, 136);
             this.lstPatients.TabIndex = 18;
             // 
             // lstConsultations
             // 
             this.lstConsultations.FormattingEnabled = true;
             this.lstConsultations.ItemHeight = 22;
-            this.lstConsultations.Location = new System.Drawing.Point(376, 57);
+            this.lstConsultations.Location = new System.Drawing.Point(398, 57);
             this.lstConsultations.Margin = new System.Windows.Forms.Padding(8);
             this.lstConsultations.Name = "lstConsultations";
-            this.lstConsultations.Size = new System.Drawing.Size(358, 444);
+            this.lstConsultations.Size = new System.Drawing.Size(358, 136);
             this.lstConsultations.TabIndex = 23;
             // 
             // dtpDateConsultation
             // 
-            this.dtpDateConsultation.Location = new System.Drawing.Point(786, 119);
+            this.dtpDateConsultation.Location = new System.Drawing.Point(773, 15);
             this.dtpDateConsultation.Name = "dtpDateConsultation";
-            this.dtpDateConsultation.Size = new System.Drawing.Size(396, 28);
+            this.dtpDateConsultation.Size = new System.Drawing.Size(342, 28);
             this.dtpDateConsultation.TabIndex = 24;
             this.dtpDateConsultation.ValueChanged += new System.EventHandler(this.dtpDateConsultation_ValueChanged);
             // 
             // txtObservation
             // 
-            this.txtObservation.Location = new System.Drawing.Point(780, 174);
+            this.txtObservation.Location = new System.Drawing.Point(767, 70);
             this.txtObservation.Multiline = true;
             this.txtObservation.Name = "txtObservation";
-            this.txtObservation.Size = new System.Drawing.Size(402, 223);
+            this.txtObservation.Size = new System.Drawing.Size(773, 223);
             this.txtObservation.TabIndex = 25;
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(855, 487);
+            this.btnValider.Location = new System.Drawing.Point(1211, 13);
             this.btnValider.Margin = new System.Windows.Forms.Padding(4);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(103, 48);
@@ -128,7 +128,7 @@
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(786, 424);
+            this.btnAjouter.Location = new System.Drawing.Point(1140, 13);
             this.btnAjouter.Margin = new System.Windows.Forms.Padding(4);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(103, 48);
@@ -139,9 +139,9 @@
             // 
             // txtDC
             // 
-            this.txtDC.Location = new System.Drawing.Point(834, 243);
+            this.txtDC.Location = new System.Drawing.Point(821, 139);
             this.txtDC.Name = "txtDC";
-            this.txtDC.Size = new System.Drawing.Size(215, 28);
+            this.txtDC.Size = new System.Drawing.Size(161, 28);
             this.txtDC.TabIndex = 32;
             this.txtDC.TextChanged += new System.EventHandler(this.txtDC_TextChanged);
             // 
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1194, 568);
+            this.ClientSize = new System.Drawing.Size(1552, 760);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.txtObservation);

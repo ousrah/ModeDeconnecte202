@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ModeDeconnecte202</RootNamespace>
     <AssemblyName>ModeDeconnecte202</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -48,11 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db.cs" />
     <Compile Include="FrmConsultation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmConsultation.Designer.cs">
       <DependentUpon>FrmConsultation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultationOp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultationOp.Designer.cs">
+      <DependentUpon>FrmConsultationOp.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
@@ -77,6 +84,9 @@
     <EmbeddedResource Include="FrmConsultation.resx">
       <DependentUpon>FrmConsultation.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultationOp.resx">
+      <DependentUpon>FrmConsultationOp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMedecin.resx">
       <DependentUpon>FrmMedecin.cs</DependentUpon>
