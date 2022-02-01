@@ -44,6 +44,20 @@ namespace ModeDeconnecte202
         }
         private void FrmMenu_Load(object sender, EventArgs e)
         {
+
+           db.creerTable("medecin");
+           db.creerTable("patient");
+           db.creerTable("consultation");
+            db.creerTable("medicament");
+            db.creerTable("ordonance");
+
+            db.creerRelation("medecin", "consultation", "id", "idMedecin");
+           db.creerRelation("patient", "consultation", "id", "idPatient");
+            db.creerRelation("consultation", "ordonance", "id", "idConsultation");
+            db.creerRelation("medicament", "ordonance", "id", "idMedicament");
+
+
+
         }
         private void toolStripButton6_Click_1(object sender, EventArgs e)
         {

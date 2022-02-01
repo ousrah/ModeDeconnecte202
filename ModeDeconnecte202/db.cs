@@ -31,6 +31,39 @@ namespace ModeDeconnecte202
             }
         }
 
+        public static void creerTable(string table)
+        {
+            ouvrirConnection();
+            com.Connection = cn;
+            com.CommandText = "select * from "+table;
+            da.SelectCommand = com;
+            if (ds.Tables.Contains(table))
+            {
+                ds.EnforceConstraints = false;
+                ds.Tables[table].Clear();
+
+            }
+
+            da.Fill(ds, table);
+            ds.EnforceConstraints = true;
+
+        }
+
+        public static void creerRelation(string tableP, string tableF, string pk, string fk)
+        {
+            ouvrirConnection();
+            string nomRelation = "fk_" + tableF + "_" + tableF;
+            DataColumn colPK = ds.Tables[tableP].Columns[pk];
+            DataColumn colFK = ds.Tables[tableF].Columns[fk];
+            DataRelation r = new DataRelation(nomRelation, colPK, colFK);
+
+            if (!ds.Relations.Contains(nomRelation))
+                ds.Relations.Add(r);
+
+
+        }
+
+
         public static BindingSource remplirListe(string table)
         {
             return remplirListe("select * from " + table, table);
