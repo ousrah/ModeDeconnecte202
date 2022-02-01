@@ -51,7 +51,12 @@ namespace ModeDeconnecte202
         }
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            AfficherFenetre(new FrmConsultationOp());
+          
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
