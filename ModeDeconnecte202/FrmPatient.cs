@@ -13,12 +13,9 @@ namespace ModeDeconnecte202
 {
     public partial class FrmPatient : Form
     {
-        SqlConnection cn = new SqlConnection();
-        DataSet ds = new DataSet();
-        SqlCommand com ;
-        SqlDataAdapter da;
-        BindingSource bs = new BindingSource();
-       SqlCommandBuilder cb;
+       
+        BindingSource bs;
+    
         bool isSaved = true;
         public FrmPatient()
         {
@@ -26,22 +23,11 @@ namespace ModeDeconnecte202
         }
         private void FrmPatient_Load(object sender, EventArgs e)
         {
-            cn.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["cabinetMedecinConnectionString"].ConnectionString;
-            cn.Open();
-//            com = new SqlCommand("select *, isnull(nom,'') + ' ' + isnull(prenom,' ') as nomComplet from patient",cn);
-            com = new SqlCommand("select * from patient", cn);
-            da = new SqlDataAdapter(com);
-            cb = new SqlCommandBuilder(da);
-            da.Fill(ds, "patient");
-            bs.DataSource = ds;
-            bs.DataMember = "patient";
-        //    dataGridView1.DataSource = bs;
+            bs = db.remplirListe("patient");
             lstPatients.DisplayMember = "nom";
             lstPatients.ValueMember = "id";
             lstPatients.DataSource = bs;
-       //     comboBox1.DisplayMember = "nom";
-       //     comboBox1.ValueMember = "id";
-       //     comboBox1.DataSource = bs;
+    
             txtnom.DataBindings.Add("Text", bs, "nom");
             txtprenom.DataBindings.Add("Text", bs, "prenom");
             txttel.DataBindings.Add("Text", bs, "telephone");
@@ -72,7 +58,21 @@ namespace ModeDeconnecte202
         {
             if(!isSaved)
                 if (MessageBox.Show("Voulez vous enregistrer les modification?","Enregistrement",MessageBoxButtons.YesNo)==DialogResult.Yes)
-                    da.Update(ds.Tables["patient"]);
+                    db.MiseAJour("patient");
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("La suppression d'un patient entrainera la suppression de toutes les données connexion!!!, Etes vous cerain de la supprimer?","Suppression",MessageBoxButtons.YesNo)==DialogResult.Yes)
+            {
+                db.ds.Relations["fk_consultation_patient"].ChildKeyConstraint.DeleteRule = Rule.Cascade;
+               bs.RemoveCurrent();
+               db.MiseAJour("consultation");
+                db.MiseAJour("patient");
+                db.ds.Relations["fk_consultation_patient"].ChildKeyConstraint.DeleteRule = Rule.None;
+
+
+            }
         }
     }
 }

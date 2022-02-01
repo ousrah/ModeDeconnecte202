@@ -55,11 +55,11 @@
     <Compile Include="FrmConsultation.Designer.cs">
       <DependentUpon>FrmConsultation.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConsultationOp.cs">
+    <Compile Include="FrmConsultation2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConsultationOp.Designer.cs">
-      <DependentUpon>FrmConsultationOp.cs</DependentUpon>
+    <Compile Include="FrmConsultation2.Designer.cs">
+      <DependentUpon>FrmConsultation2.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
@@ -85,8 +85,8 @@
       <DependentUpon>FrmConsultation.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConsultationOp.resx">
-      <DependentUpon>FrmConsultationOp.cs</DependentUpon>
+    <EmbeddedResource Include="FrmConsultation2.resx">
+      <DependentUpon>FrmConsultation2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMedecin.resx">
       <DependentUpon>FrmMedecin.cs</DependentUpon>

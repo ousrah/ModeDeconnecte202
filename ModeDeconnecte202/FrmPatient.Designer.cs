@@ -42,6 +42,7 @@
             this.txttel = new System.Windows.Forms.TextBox();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
+            this.btnSupprimer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblId
@@ -208,11 +209,23 @@
             this.btnValider.UseVisualStyleBackColor = true;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.Location = new System.Drawing.Point(883, 363);
+            this.btnSupprimer.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(145, 48);
+            this.btnSupprimer.TabIndex = 30;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            // 
             // FrmPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 536);
+            this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.label4);
@@ -238,6 +251,7 @@
             this.Load += new System.EventHandler(this.FrmPatient_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
         #endregion
         private System.Windows.Forms.Label lblId;
@@ -257,5 +271,6 @@
         private System.Windows.Forms.TextBox txttel;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnValider;
+        private System.Windows.Forms.Button btnSupprimer;
     }
 }
