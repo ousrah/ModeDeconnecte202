@@ -13,6 +13,8 @@ namespace ModeDeconnecte202
     {
         BindingSource bsPatient;
         BindingSource bsConsultation;
+        BindingSource bsMedicament;
+        BindingSource bsMPC = new BindingSource();
         public FrmConsultation2()
         {
             InitializeComponent();
@@ -25,6 +27,13 @@ namespace ModeDeconnecte202
             comboBox1.ValueMember = "id";
             comboBox1.DataSource = bsPatient;
 
+
+            bsMedicament = db.remplirListe("medicament");
+            lstMedicaments.DisplayMember = "nom";
+            lstMedicaments.ValueMember = "id";
+            lstMedicaments.DataSource = bsMedicament;
+
+
             bsConsultation = db.remplirListeRelation("consultation", bsPatient, "id", "idPatient");
             listBox1.DisplayMember = "dateConsultation";
             listBox1.ValueMember = "id";
@@ -34,6 +43,16 @@ namespace ModeDeconnecte202
             txtDescription.DataBindings.Add("Text", bsConsultation, "observation");
 
 
+
+
+            string req = "select m.nom, o.observation, o.idConsultation  from ordonance o inner join medicament m on o.idMedicament = m.id";
+            db.creerTable(req, "MedicamentsParConsultation");
+            db.creerRelation("consultation", "MedicamentsParConsultation", "id", "idConsultation");
+             
+            bsMPC.DataSource = bsConsultation;
+            bsMPC.DataMember = "fk_MedicamentsParConsultation_consultation";
+            dgvOrdonance.DataSource = bsMPC;
+            dgvOrdonance.Columns[2].Visible = false;
         }
 
         private void txtDC_TextChanged(object sender, EventArgs e)
@@ -58,8 +77,12 @@ namespace ModeDeconnecte202
 
         private void btnValider_Click(object sender, EventArgs e)
         {
+            
+
+            int i = listBox1.SelectedIndex;
             bsConsultation.EndEdit();
             db.MiseAJour("Consultation");
+            listBox1.SelectedIndex = i;
         }
     }
 }

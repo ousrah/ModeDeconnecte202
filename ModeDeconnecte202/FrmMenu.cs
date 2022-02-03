@@ -49,12 +49,12 @@ namespace ModeDeconnecte202
            db.creerTable("patient");
            db.creerTable("consultation");
             db.creerTable("medicament");
-            db.creerTable("ordonance");
+  //          db.creerTable("ordonance");
 
             db.creerRelation("medecin", "consultation", "id", "idMedecin");
            db.creerRelation("patient", "consultation", "id", "idPatient");
-            db.creerRelation("consultation", "ordonance", "id", "idConsultation");
-            db.creerRelation("medicament", "ordonance", "id", "idMedicament");
+   //         db.creerRelation("consultation", "ordonance", "id", "idConsultation");
+   //         db.creerRelation("medicament", "ordonance", "id", "idMedicament");
 
 
 

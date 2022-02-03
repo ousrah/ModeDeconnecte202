@@ -33,26 +33,30 @@ namespace ModeDeconnecte202
 
         public static void creerTable(string table)
         {
+
+            creerTable("select * from " + table, table);
+        }
+
+        public static void creerTable(string req, string table)
+        {
             ouvrirConnection();
             com.Connection = cn;
-            com.CommandText = "select * from "+table;
+            com.CommandText = req;
             da.SelectCommand = com;
             if (ds.Tables.Contains(table))
             {
                 ds.EnforceConstraints = false;
                 ds.Tables[table].Clear();
-
             }
-
             da.Fill(ds, table);
             ds.EnforceConstraints = true;
-
         }
+
 
         public static void creerRelation(string tableP, string tableF, string pk, string fk)
         {
             ouvrirConnection();
-            string nomRelation = "fk_" + tableF + "_" + tableF;
+            string nomRelation = "fk_" + tableF + "_" + tableP;
             DataColumn colPK = ds.Tables[tableP].Columns[pk];
             DataColumn colFK = ds.Tables[tableF].Columns[fk];
             DataRelation r = new DataRelation(nomRelation, colPK, colFK);
@@ -140,6 +144,9 @@ namespace ModeDeconnecte202
             da = new SqlDataAdapter(com);
             cb = new SqlCommandBuilder(da);
             da.Update(ds.Tables[table]);
+            creerTable(table);
+            
+
         }
 
 

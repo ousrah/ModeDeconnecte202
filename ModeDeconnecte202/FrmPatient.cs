@@ -51,8 +51,10 @@ namespace ModeDeconnecte202
         }
         private void btnValider_Click(object sender, EventArgs e)
         {
+            int i = lstPatients.SelectedIndex;
             bs.EndEdit();
-            isSaved = false;
+            db.MiseAJour("patient");
+            lstPatients.SelectedIndex = i;
         }
         private void FrmPatient_FormClosing(object sender, FormClosingEventArgs e)
         {
