@@ -59,6 +59,7 @@ namespace ModeDeconnecte202
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(383, 356);
             this.listBox1.TabIndex = 1;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // dtpDC
             // 
@@ -122,12 +123,13 @@ namespace ModeDeconnecte202
             // 
             // btnAjoutMedicament
             // 
-            this.btnAjoutMedicament.Location = new System.Drawing.Point(1163, 539);
+            this.btnAjoutMedicament.Location = new System.Drawing.Point(1012, 520);
             this.btnAjoutMedicament.Name = "btnAjoutMedicament";
             this.btnAjoutMedicament.Size = new System.Drawing.Size(75, 23);
             this.btnAjoutMedicament.TabIndex = 9;
             this.btnAjoutMedicament.Text = "Ajouter";
             this.btnAjoutMedicament.UseVisualStyleBackColor = true;
+            this.btnAjoutMedicament.Click += new System.EventHandler(this.btnAjoutMedicament_Click);
             // 
             // dgvOrdonance
             // 

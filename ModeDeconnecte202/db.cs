@@ -135,7 +135,12 @@ namespace ModeDeconnecte202
 
 
         }
-
+        public static void executer(string req)
+        {
+            ouvrirConnection();
+            com = new SqlCommand(req, cn);
+            com.ExecuteNonQuery();
+        }
 
         public static void MiseAJour(string table)
         {
